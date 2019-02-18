@@ -22,6 +22,11 @@ describe('Phrase', function(){
             let punctuatedPalindrome = new Phrase('A man, a plan, a canal—Panama!');
             assert(punctuatedPalindrome.palindrome());
         });
+
+        it("should return false for an blank string", function() {
+            let emptyPhrase = new Phrase(' ');
+            assert(!emptyPhrase.palindrome());
+        });
     });
 
     describe('#letters', function() {

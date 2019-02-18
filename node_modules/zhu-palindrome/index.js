@@ -5,6 +5,11 @@ String.prototype.reverse = function() {
     return Array.from(this).reverse().join(''); 
 };
 
+// extend String.prototype.blank()
+String.prototype.blank = function() {
+    return this.match(/^\s*$/);
+}
+
 // define Phrase Object
 function Phrase(content) {
     this.content = content || '';
@@ -19,6 +24,9 @@ function Phrase(content) {
 
     // returns true if content is palindrome, false otherwise
     this.palindrome = function() {
+        if (this.content.blank()) {
+            return false;
+        }
         return this.processedContent().reverse() === this.processedContent();
     }
 }
